@@ -6,7 +6,7 @@ import {Card} from "../components/Card"
 export const MovieList = ({apiPath, title}) => {
       const {data:movies} = useFetch(apiPath);
 
-      const pageTitle = useTitle(title);
+      useTitle(title);
 
      
    
