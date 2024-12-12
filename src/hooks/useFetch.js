@@ -9,8 +9,9 @@ export const useFetch = (apiPath,queryTerm="") => {
       const response = await fetch(url);
       const json = await response.json();
       setData(json.results);
+      // console.log(data);  data is in the form array
     }
-    fetchMovies();
+    fetchMovies(); 
   },[url])
   return {data};
 }

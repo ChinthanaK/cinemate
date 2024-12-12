@@ -20,9 +20,9 @@ export const PageNotFound = () => {
       </div>
       <div className="flex justify-center">
         <Link to="/">
-          <Button>Back to Cinemate</Button>
-        </Link>
-      </div>
+          <Button>Back to Cinemate</Button>  
+        </Link> 
+      </div> 
     </section>
     </main>
   )
