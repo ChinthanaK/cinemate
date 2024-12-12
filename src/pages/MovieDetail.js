@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { useTitle } from "../hooks";
 import { useParams } from "react-router-dom"
@@ -14,12 +15,12 @@ export const MovieDetail = (title) => {
 
   const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` :Backup ;
 
-  useEffect(() => {async function fetchMovie()
-    {
+  useEffect(() => {
+    async function fetchMovie(){
       const response = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=b80d59c33d6d57ed9c7e3713f91c188a`);
       const json = await response.json();
       setMovie(json);
-      console.log(json);  
+      console.log(json);  //Data is in the form of object
     }
   fetchMovie();
   },[params.id])
@@ -39,7 +40,7 @@ export const MovieDetail = (title) => {
           { movie.genres ? (
             <p className="my-7 flex flex-wrap gap-2">
             { movie.genres.map((genre) => (
-            <span className="mr-2 border border-gray-200 rounded dark:border-gray-600 p-2">{genre.name}</span>
+            <span className="mr-2 border border-gray-200 rounded dark:border-gray-600 p-2" key={genre.id}>{genre.name}</span>
             )) } 
             </p> ): "" }  
       
@@ -78,5 +79,3 @@ export const MovieDetail = (title) => {
     </main>
   )
 }
-
-
